@@ -1,0 +1,1561 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aiman Ansari | Graphic Designer Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #7b2cbf;
+        --secondary: #c77dff;
+        --accent: #ff6b9d;
+        --dark: #10002b;
+        --light: #f8f9fa;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--dark);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        line-height: 1.6;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(238, 236, 236, 0.98);
+        border-bottom: solid rgb(107, 107, 107);
+        backdrop-filter: blur(15px);
+        padding: 1.2rem 2rem;
+        z-index: 1000;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary);
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 1001;
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 1001;
+        gap: 5px;
+      }
+
+      .menu-toggle span {
+        width: 28px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 600;
+        transition: all 0.3s;
+        position: relative;
+        font-size: 0.95rem;
+        white-space: nowrap;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-radius: 2px;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      #hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          #9d4edd 50%,
+          var(--secondary) 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+
+      .floating-shape {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+      }
+
+      .shape1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        left: -100px;
+        animation: float 8s ease-in-out infinite;
+      }
+      .shape2 {
+        width: 200px;
+        height: 200px;
+        top: 50%;
+        right: -50px;
+        animation: float 10s ease-in-out infinite 2s;
+      }
+      .shape3 {
+        width: 150px;
+        height: 150px;
+        bottom: 10%;
+        left: 20%;
+        animation: float 12s ease-in-out infinite 4s;
+      }
+      .shape4 {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        right: 30%;
+        animation: float 9s ease-in-out infinite 1s;
+      }
+
+      .hero-content {
+        text-align: center;
+        color: white;
+        z-index: 1;
+        max-width: 900px;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(3rem, 8vw, 6rem);
+        margin-bottom: 0.5rem;
+        font-weight: 800;
+        letter-spacing: -2px;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-content .subtitle {
+        font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+        margin-bottom: 1rem;
+        font-weight: 300;
+        letter-spacing: 3px;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+      }
+
+      .hero-tagline {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        margin-bottom: 3rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s both;
+      }
+
+      .cta-button {
+        padding: 1rem 2.5rem;
+        background: white;
+        color: var(--primary);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        font-size: 1.05rem;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 60px rgb(234, 0, 255);
+      }
+
+      .cta-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .cta-secondary:hover {
+        background: white;
+        color: var(--primary);
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+        cursor: pointer;
+      }
+
+      /* Introduction Section */
+      #introduction {
+        padding: 8rem 2rem;
+        background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+        position: relative;
+      }
+
+      .intro-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .intro-badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background: linear-gradient(135deg, var(--secondary), var(--accent));
+        color: white;
+        border-radius: 50px;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease-out;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+      }
+
+      .intro-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--primary);
+        margin-bottom: 2rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .intro-description {
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        color: #555;
+        max-width: 900px;
+        margin: 0 auto 3rem;
+        line-height: 1.8;
+      }
+
+      .intro-highlight {
+        font-weight: 700;
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+      }
+
+      /* About Section */
+      #about {
+        padding: 8rem 2rem;
+        background: white;
+      }
+
+      .about-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+
+      .section-subtitle {
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s;
+      }
+
+      .section-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: var(--dark);
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s 0.1s;
+      }
+
+      .section-description {
+        font-size: 1.2rem;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s 0.2s;
+      }
+
+      .section-header.visible .section-subtitle,
+      .section-header.visible .section-title,
+      .section-header.visible .section-description {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .about-card {
+        background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid rgba(123, 44, 191, 0.1);
+      }
+
+      .about-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .about-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(123, 44, 191, 0.15);
+      }
+
+      .about-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 10px 30px rgba(123, 44, 191, 0.3);
+      }
+
+      .about-card h3 {
+        font-size: 1.6rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .about-card p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+
+      /* Skills Section */
+      #skills {
+        padding: 8rem 2rem;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skills-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 4rem;
+      }
+
+      .skill-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary),
+          var(--secondary),
+          var(--accent)
+        );
+        transform: scaleX(0);
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .skill-card.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 60px rgba(123, 44, 191, 0.2);
+      }
+
+      .skill-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .skill-number {
+        font-size: 3.5rem;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        line-height: 1;
+      }
+
+      .skill-card h3 {
+        color: var(--dark);
+        margin-bottom: 1rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .skill-card p {
+        color: #666;
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+
+      /* Portfolio Overview Section */
+      #portfolio-overview {
+        padding: 8rem 2rem;
+        background: white;
+      }
+
+      .portfolio-overview-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .overview-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+        margin-top: 4rem;
+      }
+
+      .overview-text {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .overview-text.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .overview-text h3 {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 2rem;
+        font-weight: 800;
+      }
+
+      .overview-text p {
+        font-size: 1.15rem;
+        color: #555;
+        line-height: 1.9;
+        margin-bottom: 1.5rem;
+      }
+
+      .overview-visual {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 30px;
+        padding: 3rem;
+        box-shadow: 0 20px 60px rgba(123, 44, 191, 0.3);
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      .overview-visual.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Project Sections */
+      .project-section {
+        padding: 8rem 2rem;
+        position: relative;
+      }
+
+      .project-section:nth-child(odd) {
+        background: linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%);
+      }
+
+      .project-section:nth-child(even) {
+        background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+      }
+
+      .project-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .project-intro {
+        max-width: 900px;
+        margin: 0 auto 5rem;
+        text-align: center;
+      }
+
+      .project-intro p {
+        font-size: 1.15rem;
+        color: #666;
+        line-height: 1.8;
+        margin-top: 1.5rem;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .project-card.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 25px 70px rgba(123, 44, 191, 0.25);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 350px;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .project-image.placeholder {
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .project-image::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: opacity 0.4s;
+        z-index: 1;
+      }
+
+      .project-card:hover .project-image::before {
+        opacity: 1;
+      }
+
+      .project-info {
+        padding: 2rem;
+      }
+
+      .project-info h3 {
+        font-size: 1.6rem;
+        color: var(--dark);
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .project-info p {
+        color: #666;
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+
+      .project-tag {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: linear-gradient(135deg, var(--secondary), var(--accent));
+        color: white;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+
+      /* Contact Section */
+      #contact {
+        padding: 8rem 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          #9d4edd 50%,
+          var(--secondary) 100%
+        );
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      #contact .section-title {
+        color: white;
+      }
+
+      .contact-intro {
+        font-size: 1.3rem;
+        margin-bottom: 4rem;
+        opacity: 0.95;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .contact-social {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+
+      .contact-card-center {
+        max-width: 350px;
+        width: 100%;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .contact-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-10px);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      .contact-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .contact-card a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.05rem;
+        transition: all 0.3s;
+        display: inline-block;
+      }
+
+      .contact-card a:hover {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+        }
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(30px, -50px) rotate(120deg);
+        }
+        66% {
+          transform: translate(-20px, -30px) rotate(240deg);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        40% {
+          transform: translateX(-50%) translateY(-20px);
+        }
+        60% {
+          transform: translateX(-50%) translateY(-10px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 968px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        nav ul {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100vh;
+          width: 70%;
+          max-width: 300px;
+          background: linear-gradient(135deg, var(--primary), var(--secondary));
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+          transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul.active {
+          right: 0;
+        }
+
+        nav a {
+          color: white;
+          font-size: 1.2rem;
+        }
+
+        nav a::after {
+          background: white;
+        }
+
+        .overview-content,
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .cta-button {
+          width: 100%;
+          text-align: center;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .hero-content h1 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        nav {
+          padding: 1rem 1.5rem;
+        }
+
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        nav ul {
+          width: 80%;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 4rem 1.5rem;
+        }
+
+        .about-card,
+        .skill-card {
+          padding: 2rem;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-content .subtitle {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        nav ul {
+          width: 85%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">Aiman Graphic Designer</div>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio-overview">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="hero-bg">
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        <div class="floating-shape shape3"></div>
+        <div class="floating-shape shape4"></div>
+      </div>
+      <div class="hero-content">
+        <h1>Aiman Ansari</h1>
+        <p class="subtitle">GRAPHIC DESIGNER</p>
+        <p class="hero-tagline">
+          Transforming ideas into stunning visual experiences through creative
+          design and passionate storytelling
+        </p>
+        <div class="hero-buttons">
+          <a href="#portfolio-overview" class="cta-button">View My Work</a>
+          <a href="#contact" class="cta-button cta-secondary">Get In Touch</a>
+        </div>
+      </div>
+      <div
+        class="scroll-indicator"
+        onclick="document.querySelector('#introduction').scrollIntoView({behavior: 'smooth'})"
+      >
+        <svg width="30" height="30" fill="white" viewBox="0 0 24 24">
+          <path d="M7 10l5 5 5-5z" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction">
+      <div class="intro-container">
+        <div class="intro-badge">WELCOME TO MY PORTFOLIO</div>
+        <h2 class="intro-title">
+          Hello, I'm Aiman Ansari<br />A Graphic Designer
+        </h2>
+        <p class="intro-description">
+          Driven by a
+          <span class="intro-highlight">love for visual storytelling</span> and
+          a self taught technical foundation. Instead of a traditional corporate
+          background, I offer a portfolio built on
+          <span class="intro-highlight">pure practice and personal passion</span
+          >. I've spent my time mastering the tools and principles of design
+          through hands on experimentation. I'm a
+          <span class="intro-highlight">fast learner</span>, a dedicated problem
+          solver, and I'm currently looking for my first professional
+          opportunity to make an impact.
+        </p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="about-container">
+        <div class="section-header">
+          <p class="section-subtitle">GET TO KNOW ME</p>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-description">
+            My journey, passion, and what drives my creative process
+          </p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card">
+            <div class="about-icon">🎨</div>
+            <h3>My Journey</h3>
+            <p>
+              Hi, I'm Aiman Ansari, a Graphic Designer who believes that great
+              design should be bold, clean, and effective. My journey into
+              design hasn't been through a traditional agency, but through a
+              dedicated, self taught mastery of design tools and principles.
+            </p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">💡</div>
+            <h3>My Philosophy</h3>
+            <p>
+              By treating every personal project as a professional challenge,
+              I've learned how to leverage design tools to their full potential
+              creating everything from cohesive brand identities to high
+              engagement social content that resonates with audiences.
+            </p>
+          </div>
+          <div class="about-card">
+            <div class="about-icon">🚀</div>
+            <h3>My Approach</h3>
+            <p>
+              I am a 'learning-by-doing' creator, and while I am new to the
+              industry, I bring a fresh eye and a disciplined workflow to every
+              project I touch. My background is rooted in self directed practice
+              with hundreds of hours of hands on experimentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="skills-container">
+        <div class="section-header">
+          <p class="section-subtitle">WHAT I DO BEST</p>
+          <h2 class="section-title">Skills & Expertise</h2>
+          <p class="section-description">
+            My core competencies and areas of specialization
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-number">01</div>
+            <h3>Visual Branding</h3>
+            <p>
+              Creating cohesive brand identities that stand out and make lasting
+              impressions
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-number">02</div>
+            <h3>Social Media Design</h3>
+            <p>
+              Crafting engaging visual content optimized for digital platforms
+              and audiences
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-number">03</div>
+            <h3>Layout & Composition</h3>
+            <p>
+              Designing balanced layouts that guide the eye and enhance user
+              experience
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-number">04</div>
+            <h3>Business Stationery</h3>
+            <p>
+              Professional business materials that communicate credibility and
+              style
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-number">05</div>
+            <h3>Digital Design</h3>
+            <p>
+              Modern designs for web, mobile, and digital media that captivate
+              users
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-number">06</div>
+            <h3>Typography</h3>
+            <p>
+              Masterful type selection and arrangement that enhances readability
+              and impact
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Overview Section -->
+    <section id="portfolio-overview">
+      <div class="portfolio-overview-container">
+        <div class="section-header">
+          <p class="section-subtitle">MY CREATIVE WORK</p>
+          <h2 class="section-title">Portfolio Overview</h2>
+          <p class="section-description">
+            A showcase of my diverse skills and creative journey
+          </p>
+        </div>
+        <div class="overview-content">
+          <div class="overview-text">
+            <h3>Welcome to My Design World</h3>
+            <p>
+              This portfolio is a curated collection that showcases my diverse
+              skills, creativity, and experience across various design
+              disciplines.
+            </p>
+            <p>
+              Each project reflects my journey as a designer, highlighting my
+              ability to blend aesthetics with functionality. From brand
+              identities to digital experiences, every piece tells a unique
+              story.
+            </p>
+            <p>
+              Explore my work and see how I bring ideas to life through
+              thoughtful design and creative problem-solving.
+            </p>
+          </div>
+          <div class="overview-visual">
+            <p>
+              🎨 Creative Excellence<br />💼 Professional Quality<br />✨ Unique
+              Vision
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Branding Projects Section -->
+    <section id="branding" class="project-section">
+      <div class="project-container">
+        <div class="section-header">
+          <p class="section-subtitle">BRAND IDENTITY</p>
+          <h2 class="section-title">Branding Projects</h2>
+        </div>
+        <div class="project-intro">
+          <p>
+            Explore my work in crafting unique brand identities. Each project
+            highlights my approach to logo design, color palettes, typography,
+            and brand guidelines, illustrating how I help businesses establish a
+            strong visual presence.
+          </p>
+        </div>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./WhatsApp Image 2025-12-24 at 1.00.23 AM.jpeg"
+                alt="Brand Identity 1"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Brand Design 1</h3>
+              <p>
+                Complete brand identity system with logo, color palette, and
+                visual guidelines.
+              </p>
+              <span class="project-tag">Branding</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./WhatsApp Image 2025-12-22 at 1.00.22 AM.jpeg"
+                alt="Brand Identity 2"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Brand Design 2</h3>
+              <p>
+                Modern brand design featuring unique typography and memorable
+                visual elements.
+              </p>
+              <span class="project-tag">Branding</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./WhatsApp Image 2025-12-21 at 1.00.22 AM.jpeg"
+                alt="Brand Identity 3"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Brand Design 3</h3>
+              <p>
+                Comprehensive branding package with cohesive design across all
+                touchpoints.
+              </p>
+              <span class="project-tag">Branding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout & Composition Section -->
+    <section id="layout" class="project-section">
+      <div class="project-container">
+        <div class="section-header">
+          <p class="section-subtitle">VISUAL STRUCTURE</p>
+          <h2 class="section-title">Layout & Composition</h2>
+        </div>
+        <div class="project-intro">
+          <p>
+            Discover my design creations that prioritize user experience and
+            visual appeal. This section showcases responsive designs, custom
+            layouts, and compositions that enhance interactions and engagement.
+          </p>
+        </div>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./WhatsApp Image 2025-12-21 at 1.00.20 AM.jpeg"
+                alt="Layout Design 1"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Layout Design 1</h3>
+              <p>
+                Clean and organized layout with perfect balance and visual
+                hierarchy.
+              </p>
+              <span class="project-tag">Layout</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="./Untitled-3.jpg" alt="Layout Design 2" />
+            </div>
+            <div class="project-info">
+              <h3>Layout Design 2</h3>
+              <p>
+                Responsive composition optimized for multiple devices and screen
+                sizes.
+              </p>
+              <span class="project-tag">Layout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media Design Section -->
+    <section id="social-media" class="project-section">
+      <div class="project-container">
+        <div class="section-header">
+          <p class="section-subtitle">DIGITAL CONTENT</p>
+          <h2 class="section-title">Social Media Design</h2>
+        </div>
+        <div class="project-intro">
+          <p>
+            View a selection of social media materials, including posts,
+            stories, and promotional content. These projects reflect my ability
+            to create visually striking designs that communicate effectively and
+            leave a lasting impression.
+          </p>
+        </div>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./WhatsApp Image 2025-12-22 at 1.00.22 AM.jpeg"
+                alt="Social Media Campaign 1"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Social Media Design 1</h3>
+              <p>
+                Engaging social media graphics designed to boost engagement and
+                reach.
+              </p>
+              <span class="project-tag">Social Media</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="./Untitled-2.jpg" alt="Social Media Campaign 2" />
+            </div>
+            <div class="project-info">
+              <h3>Social Media Design 2</h3>
+              <p>
+                Eye-catching content series with consistent branding and
+                messaging.
+              </p>
+              <span class="project-tag">Social Media</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digital Design Section -->
+    <section id="digital-design" class="project-section">
+      <div class="project-container">
+        <div class="section-header">
+          <p class="section-subtitle">DIGITAL ARTWORK</p>
+          <h2 class="section-title">Digital Design</h2>
+        </div>
+        <div class="project-intro">
+          <p>
+            Delve into my illustrative work, featuring custom graphics and
+            artwork that enrich various projects. This section highlights my
+            creativity and versatility in using digital design as a powerful
+            storytelling tool.
+          </p>
+        </div>
+        <div class="project-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./WhatsApp Image 2025-12-24 at 1.00.23 AM.jpeg"
+                alt="Digital Artwork 1"
+              />
+            </div>
+            <div class="project-info">
+              <h3>Digital Design 1</h3>
+              <p>
+                Custom illustrations and graphics created for unique brand
+                experiences.
+              </p>
+              <span class="project-tag">Digital</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="./Untitled-4.jpg" alt="Digital Artwork 2" />
+            </div>
+            <div class="project-info">
+              <h3>Digital Design 2</h3>
+              <p>
+                Creative digital compositions blending art and functionality
+                seamlessly.
+              </p>
+              <span class="project-tag">Digital</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="contact-container">
+        <div class="section-header">
+          <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9)">
+            LET'S CONNECT
+          </p>
+          <h2 class="section-title">Get In Touch</h2>
+        </div>
+        <p class="contact-intro">
+          Thank you for visiting, and I hope you find inspiration in my work!
+          Let's create something amazing together.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>Location</h3>
+            <p>Sector 5/D North Karachi<br />Pakistan</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <a href="mailto:aiman270.aa@gmail.com">aiman270.aa@gmail.com</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📱</div>
+            <h3>Phone</h3>
+            <a href="tel:+923002263725">+92 300 226 3725</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">🌐</div>
+            <h3>Website</h3>
+            <a href="http://www.creativeaimydesign.com" target="_blank"
+              >creativeaimydesign.com</a
+            >
+          </div>
+        </div>
+        <div class="contact-social">
+          <div class="contact-card contact-card-center">
+            <div class="contact-icon">📷</div>
+            <h3>Instagram</h3>
+            <a href="https://instagram.com/a_flower.girl" target="_blank"
+              >@a_flower.girl</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector("nav ul");
+      const navLinks = document.querySelectorAll("nav a");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
+
+      // Close menu when clicking on a link
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.classList.remove("active");
+          navMenu.classList.remove("active");
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("nav")) {
+          menuToggle.classList.remove("active");
+          navMenu.classList.remove("active");
+        }
+      });
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document
+        .querySelectorAll(
+          ".section-header, .about-card, .skill-card, .project-card, .contact-card, .overview-text, .overview-visual"
+        )
+        .forEach((el) => {
+          observer.observe(el);
+        });
+
+      // Smooth scroll for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Stagger animation delays
+      document.querySelectorAll(".skill-card").forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+      });
+
+      document.querySelectorAll(".project-card").forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.15}s`;
+      });
+
+      document.querySelectorAll(".contact-card").forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+      });
+
+      document.querySelectorAll(".about-card").forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.15}s`;
+      });
+
+      // Active navigation on scroll
+      window.addEventListener("scroll", () => {
+        let current = "";
+        document.querySelectorAll("section").forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        document.querySelectorAll("nav a").forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").slice(1) === current) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
